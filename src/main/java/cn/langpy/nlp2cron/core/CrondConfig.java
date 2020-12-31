@@ -16,19 +16,16 @@ import java.util.Map;
  * @author：zhangchang
  * @date 2020/12/31 10:43
  */
-public class Config {
+public class CrondConfig {
     public  String modelPath = "src\\main\\resources\\cronmodel";
     public  String modelInputName = "serving_default_embedding_input:0";
     public  String modelOutputName = "StatefulPartitionedCall:0";
     public  Integer modelInputSize = 46;
     public  Integer modelOutputSize = 15;
     public  JSONObject word2id = null;
-    public  Map<String, String> timeDescriptions = new HashMap<>();
     public  Map<Integer, String> id2str = new HashMap<Integer, String>();
 
     {
-        timeDescriptions.put("tomorrow", "(明天|明早|明晚).*");
-        timeDescriptions.put("tomorrow", "(今天|今早|明晚).*");
         try {
             ClassPathResource classPathResource = new ClassPathResource("word2id.json");
             String mapping = IOUtils.toString(classPathResource.getInputStream(),"utf-8");

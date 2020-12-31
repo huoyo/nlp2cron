@@ -1,14 +1,13 @@
-package cn.langpy.nlp2cron.test;
+package cn.langpy.nlp2cron;
 
-import cn.langpy.nlp2cron.CronUtil;
+import cn.langpy.nlp2cron.CrondUtil;
 
 public class Main {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-            String cron = CronUtil.toCron("一小时一次");
+            String cron = CrondUtil.toCron("明晚七点");
             System.out.println(cron);
         }
-
     }
 }
 
