@@ -5,6 +5,8 @@ import cn.langpy.nlp2cron.core.ModelLoader;
 import org.tensorflow.SavedModelBundle;
 import org.tensorflow.Tensor;
 
+import java.time.LocalDate;
+
 /**
  * @name：
  * @function：
@@ -22,6 +24,7 @@ public class CronUtil {
     }
 
     public static String toCron(String message) {
+
         Tensor input = toVec(message, new float[1][config.getModelInputSize()]);
         Tensor output = tensorflowModelBundle.session().runner()
                 .feed(config.getModelInputName(), input)
@@ -29,7 +32,33 @@ public class CronUtil {
         float[][][] resultValues = (float[][][]) output.copyTo(new float[1][config.getModelInputSize()][config.getModelOutputSize()]);
         input.close();
         output.close();
-        return argmax(resultValues[0]);
+        String re = argmax(resultValues[0]);
+        if (message.matches(".*(明天|明早|明晚).*")) {
+           re = getTomorrow(re);
+        }else if(message.matches(".*(今天|今晚|今早).*") || message.matches(".{1,2}(:|点)") ) {
+           re = getToday(re);
+        }
+        return re;
+    }
+
+    public static String getToday(String re) {
+        LocalDate now = LocalDate.now();
+        int year = now.getYear();
+        int month = now.getMonth().getValue();
+        int day = now.getDayOfMonth();
+        String[] reSplit = re.split(" ");
+        re = reSplit[0]+" "+reSplit[1]+" "+reSplit[2]+" "+day+" "+month+" ? "+year;
+        return re;
+    }
+
+    public static String getTomorrow(String re) {
+        LocalDate now = LocalDate.now().plusDays(1);
+        int year = now.getYear();
+        int month = now.getMonth().getValue();
+        int day = now.getDayOfMonth();
+        String[] reSplit = re.split(" ");
+        re = reSplit[0]+" "+reSplit[1]+" "+reSplit[2]+" "+day+" "+month+" ? "+year;
+        return re;
     }
 
     private static Tensor toVec(String message, float[][] vecShape) {

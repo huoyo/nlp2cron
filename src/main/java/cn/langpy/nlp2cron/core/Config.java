@@ -5,7 +5,9 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,9 +23,12 @@ public class Config {
     public  Integer modelInputSize = 46;
     public  Integer modelOutputSize = 15;
     public  JSONObject word2id = null;
+    public  Map<String, String> timeDescriptions = new HashMap<>();
     public  Map<Integer, String> id2str = new HashMap<Integer, String>();
 
     {
+        timeDescriptions.put("tomorrow", "(明天|明早|明晚).*");
+        timeDescriptions.put("tomorrow", "(今天|今早|明晚).*");
         try {
             ClassPathResource classPathResource = new ClassPathResource("word2id.json");
             String mapping = IOUtils.toString(classPathResource.getInputStream(),"utf-8");
