@@ -16,16 +16,19 @@ public class CrondHandler implements InvocationHandler {
         String message = args[0].toString();
         String re = CrondModelLoader.predict(message);
         TimeType timeType = NumUtil.getTimeType(message);
-        if (method.getName().equals("toCron")) {
-            return NumUtil.cronHandler(re, timeType);
-        } else if (method.getName().equals("toDateTime")) {
-            return NumUtil.dateTimeHandler(re, timeType);
-        } else if (method.getName().equals("toTime")) {
-            return NumUtil.timeHandler(re, timeType);
-        } else if (method.getName().equals("toDate")) {
-            return NumUtil.dateHandler(re, timeType);
+
+        switch (method.getName()){
+            case "toCron":
+                return NumUtil.cronHandler(re, timeType);
+            case "toDateTime":
+                return NumUtil.dateTimeHandler(re, timeType);
+            case "toTime":
+                return NumUtil.timeHandler(re, timeType);
+            case "toDate":
+                return NumUtil.dateHandler(re, timeType);
+            default:
+                throw new Exception("未知的方法:"+method.getName());
         }
-        return null;
     }
 
 }
