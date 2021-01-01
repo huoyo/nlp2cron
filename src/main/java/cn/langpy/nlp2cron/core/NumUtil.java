@@ -55,10 +55,10 @@ public class NumUtil {
         return reSplit[2]+":"+reSplit[1]+":"+reSplit[0];
     }
 
-    public static TimeType getTimeType(String re) {
-        if (re.matches(".*(明天|明早|明晚).*")) {
+    public static TimeType getTimeType(String message) {
+        if (message.matches(".*(明天|明早|明晚).*")) {
             return TimeType.tomorrow;
-        }else if(re.matches(".*(今天|今晚|今早).*") || re.matches(".{1,2}(:|点)") ) {
+        }else if((message.matches(".*(今天|今晚|今早|早上|晚上).*") && !message.contains("每")) || message.matches(".{1,2}(:|点)") ) {
             return TimeType.today;
         }
         return TimeType.others;

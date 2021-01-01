@@ -9,17 +9,28 @@ import org.tensorflow.Tensor;
  * @author：zhangchang
  * @date 2020/12/31 10:43
  */
-public class ModelLoader {
+public class CrondModelLoader {
 
     static SavedModelBundle tensorflowModelBundle = null;
     static CrondConfig config = null;
     static {
         config = new CrondConfig();
-        ModelLoader modelLoader = new ModelLoader();
-        tensorflowModelBundle = modelLoader.loadModel(config.getModelPath());
+        tensorflowModelBundle = CrondModelLoader.loadModel(config.getModelPath());
     }
 
-    public SavedModelBundle loadModel(String path) {
+    public static void init(String path) {
+        tensorflowModelBundle = CrondModelLoader.loadModel(path);
+    }
+    public static void init(CrondConfig crondConfig) {
+        config = crondConfig;
+        tensorflowModelBundle = CrondModelLoader.loadModel(config.getModelPath());
+    }
+
+    public static void init() {
+        tensorflowModelBundle = CrondModelLoader.loadModel(config.getModelPath());
+    }
+
+    public static SavedModelBundle loadModel(String path) {
         SavedModelBundle tensorflowModelBundle = null;
         try {
             tensorflowModelBundle = SavedModelBundle.load(path,"serve");
