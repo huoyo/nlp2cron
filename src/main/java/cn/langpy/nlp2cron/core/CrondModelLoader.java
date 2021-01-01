@@ -1,5 +1,6 @@
 package cn.langpy.nlp2cron.core;
 
+import cn.langpy.nlp2cron.rnn.CrondConfig;
 import org.tensorflow.SavedModelBundle;
 import org.tensorflow.Tensor;
 

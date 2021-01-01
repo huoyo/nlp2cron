@@ -1,6 +1,7 @@
 package cn.langpy.nlp2cron.factory;
 
-import cn.langpy.nlp2cron.core.CrondHandler;
+import cn.langpy.nlp2cron.rnn.RnnCrondHandler;
+import cn.langpy.nlp2cron.seq2seq.Seq2seqCrondHandler;
 
 import java.lang.reflect.Proxy;
 
@@ -12,7 +13,8 @@ import java.lang.reflect.Proxy;
  */
 public class CrondFactory {
     public static  <T>T getCrondServce(Class<T> target) {
-        T o = (T) Proxy.newProxyInstance(target.getClassLoader(), new Class[]{target}, new CrondHandler());
+//        T o = (T) Proxy.newProxyInstance(target.getClassLoader(), new Class[]{target}, new RnnCrondHandler());
+        T o = (T) Proxy.newProxyInstance(target.getClassLoader(), new Class[]{target}, new Seq2seqCrondHandler());
         return o;
     }
 }
