@@ -30,7 +30,7 @@ public class CrondModelLoader {
         tensorflowModelBundle = CrondModelLoader.loadModel(config.getModelPath());
     }
 
-    public static SavedModelBundle loadModel(String path) {
+    private static SavedModelBundle loadModel(String path) {
         SavedModelBundle tensorflowModelBundle = null;
         try {
             tensorflowModelBundle = SavedModelBundle.load(path,"serve");
