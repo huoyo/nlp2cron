@@ -6,13 +6,13 @@ import cn.langpy.nlp2cron.core.CrondModel;
 public class Main {
     public static void main(String[] args) {
         CrondModel.init("src/main/resources/model");
-        String test1 = "七点";
+        String test1 = "明早八点";
         String test2 = "每天晚上7点开始";
         String test3 = "每15分钟一次";
         String test4 = "每2小时一次";
         String test5 = "每天晚上7点开始";
         String test6 = "每天早上7点开始";
-        String test7 = "上午一点";
+        String test7 = "上午一点执行";
         String cron1 = CrondUtil.toCron(test1);
         String cron2 = CrondUtil.toCron(test2);
         String cron3 = CrondUtil.toCron(test3);
