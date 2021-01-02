@@ -1,20 +1,18 @@
 package cn.langpy.nlp2cron.test;
 
 import cn.langpy.nlp2cron.CrondUtil;
-import cn.langpy.nlp2cron.core.CrondModelLoader;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.SystemEnvironmentPropertySource;
+import cn.langpy.nlp2cron.core.CrondModel;
 
 public class Main {
     public static void main(String[] args) {
-        CrondModelLoader.init();
-        String test1 = "今早八点";
-        String test2 = "明晚8点";
-        String test3 = "15分钟一次";
+        CrondModel.init("src/main/resources/model");
+        String test1 = "七点";
+        String test2 = "每天晚上7点开始";
+        String test3 = "每15分钟一次";
         String test4 = "每2小时一次";
         String test5 = "每天晚上7点开始";
         String test6 = "每天早上7点开始";
-        String test7 = "每天晚上7点23分开始执行";
+        String test7 = "上午一点";
         String cron1 = CrondUtil.toCron(test1);
         String cron2 = CrondUtil.toCron(test2);
         String cron3 = CrondUtil.toCron(test3);
@@ -29,16 +27,7 @@ public class Main {
         System.out.println(test5+" 转为cron表达式："+cron5);
         System.out.println(test6+" 转为cron表达式："+cron6);
         System.out.println(test7+" 转为cron表达式："+cron7);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        CrondModel.close();
 
     }
 
