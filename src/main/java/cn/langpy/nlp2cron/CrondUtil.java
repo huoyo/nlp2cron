@@ -3,12 +3,7 @@ package cn.langpy.nlp2cron;
 import cn.langpy.nlp2cron.core.CrondInteface;
 import cn.langpy.nlp2cron.factory.CrondFactory;
 
-/**
- * @name：
- * @function：
- * @author：zhangchang
- * @date 2020/12/31 15:54
- */
+
 public class CrondUtil {
     static CrondInteface crondInteface = null;
 

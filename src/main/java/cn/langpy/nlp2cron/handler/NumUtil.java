@@ -4,12 +4,7 @@ import cn.langpy.nlp2cron.core.TimeType;
 
 import java.time.LocalDate;
 
-/**
- * @name：
- * @function：
- * @author：zhangchang
- * @date 2020/12/31 16:26
- */
+
 public class NumUtil {
 
     public static String cronHandler(String re, TimeType timeType) {

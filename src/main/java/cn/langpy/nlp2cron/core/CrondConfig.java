@@ -7,12 +7,7 @@ import org.springframework.core.io.ClassPathResource;
 
 import java.util.*;
 
-/**
- * @name：
- * @function：
- * @author：zhangchang
- * @date 2020/12/31 10:43
- */
+
 public class CrondConfig {
     public  String modelPath = "src\\main\\resources\\model";
     public  JSONObject word2id = null;

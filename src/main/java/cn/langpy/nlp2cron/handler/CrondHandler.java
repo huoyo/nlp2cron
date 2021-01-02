@@ -5,12 +5,7 @@ import cn.langpy.nlp2cron.core.TimeType;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-/**
- * @name：
- * @function：
- * @author：zhangchang
- * @date 2020/12/31 15:52
- */
+
 public class CrondHandler implements InvocationHandler {
 
 
