@@ -27,7 +27,8 @@ CrondModel.init("d:/model");
 3.  使用
 ```java
  public static void main(String[] args) {
-  CrondModel.init("src/main/resources/model");
+        /*模型初始化，初始化需要时间，可提前进行初始化*/
+        CrondModel.init("src/main/resources/model");
         String test1 = "明早八点";
         String test2 = "每天晚上7点开始";
         String test3 = "每15分钟一次";
@@ -42,6 +43,8 @@ CrondModel.init("d:/model");
         String cron5 = CrondUtil.toCron(test5);
         String cron6 = CrondUtil.toCron(test6);
         String cron7 = CrondUtil.toCron(test7);
+        /*使用完关闭*/
+        CrondModel.close();
         //明早八点 转为cron表达式：0 0 8 3 1 ? 2021
         //每天晚上7点开始 转为cron表达式：0 0 19 * * ? *
         //每15分钟一次 转为cron表达式：0 0/15 * * * ? *
