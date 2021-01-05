@@ -25,10 +25,20 @@ CrondModel.init("d:/model");
 
 
 3.  使用
+
+假设解压后的目录为
+
+```java
+├─D
+│  └─model
+│         └─decoder_model
+│         └─encoder_model
+```
+
 ```java
  public static void main(String[] args) {
         /*模型初始化，初始化需要时间，可提前进行初始化*/
-        CrondModel.init("src/main/resources/model");
+        CrondModel.init("d:/model");
         String test1 = "明早八点";
         String test2 = "每天晚上7点开始";
         String test3 = "每15分钟一次";
