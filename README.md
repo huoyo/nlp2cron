@@ -28,7 +28,7 @@ CrondModel.init("d:/model");
 
 假设解压后的目录为
 
-```java
+```
 ├─D
 │  └─model
 │         └─decoder_model
