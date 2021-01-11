@@ -3,8 +3,8 @@ package cn.langpy.nlp2cron.core;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
-import org.springframework.core.io.ClassPathResource;
 
+import java.io.InputStream;
 import java.util.*;
 
 
@@ -17,8 +17,8 @@ public class CrondConfig {
 
     {
         try {
-            ClassPathResource classPathResource = new ClassPathResource("word2id.json");
-            String mapping = IOUtils.toString(classPathResource.getInputStream(),"utf-8");
+            InputStream inputStream = CrondConfig.class.getResourceAsStream("/word2id.json");
+            String mapping = IOUtils.toString(inputStream,"utf-8");
             word2id = JSON.parseObject(mapping);
         } catch (Exception e) {
             e.printStackTrace();
