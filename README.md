@@ -18,7 +18,8 @@ nlp2cron是一个将自然语言转换为cron表达式的工具包，可用于�
 ```
 2.  模型配置
 
-下载对应的发行版本的模型，并解压到任意目录，然后在代码种配置模型路径，如：
+[下载](https://gitee.com/huoyo/nlp2cron/releases)对应的发行版本的模型，并解压到任意目录，然后在代码种配置模型路径，如：
+
 ```java
 CrondModel.init("d:/model");
 ```
