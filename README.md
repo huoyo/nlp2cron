@@ -13,7 +13,7 @@ nlp2cron是一个将自然语言转换为cron表达式的工具包，可用于�
  <dependency>
     <groupId>cn.langpy</groupId>
     <artifactId>nlp2cron</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
   </dependency>
 ```
 2.  模型配置
@@ -53,7 +53,7 @@ CrondModel.init("d:/model");
         String cron5 = CrondUtil.toCron(test5);
         String cron6 = CrondUtil.toCron(test6);
         String cron7 = CrondUtil.toCron(test7);
-        /*使用完关闭*/
+        /*使用完关闭 如果在web中需要重复使用则不需要关闭*/
         CrondModel.close();
         //明早八点 转为cron表达式：0 0 8 3 1 ? 2021
         //每天晚上7点开始 转为cron表达式：0 0 19 * * ? *
