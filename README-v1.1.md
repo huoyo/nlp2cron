@@ -1,31 +1,19 @@
 # nlp2cron
 
-
-
----
-
-<div >
-    <img src='https://shields.io/badge/version-2.0.BETA-green.svg'>
-    <img src='https://shields.io/badge/dependencies-tensorflow-blue.svg'>
-    <img src='https://shields.io/badge/author-Chang Zhang-dbab09.svg'>
-    <h4>Nlp2cron是一个将自然语言转换为cron表达式的工具包，可用于对话机器人的定时任务以及平常开发中的cron表达式识别</h4>
-</div>
-
-
+#### 介绍
+nlp2cron是一个将自然语言转换为cron表达式的工具包，可用于对话机器人的定时任务以及平常开发中的cron表达式识别，识别率在85%左右
 
 
 
 
 #### 使用教程
 
-> 注：v1.1版本请移步[v1.1](README-v1.1.md)
-
 1.  引入依赖 或者 下载发行版本
 ```
  <dependency>
     <groupId>cn.langpy</groupId>
     <artifactId>nlp2cron</artifactId>
-    <version>2.0.BETA</version>
+    <version>1.1</version>
   </dependency>
 ```
 2.  模型配置
@@ -44,8 +32,8 @@ CrondModel.init("d:/model");
 ```
 ├─D
 │  └─model
-│         └─variables
-│         └─saved_model.pb
+│         └─decoder_model
+│         └─encoder_model
 ```
 
 ```java
@@ -81,8 +69,7 @@ CrondModel.init("d:/model");
 
 #### 版本说明
 
-> V1.0：初始版本
-> V2.0.BETA：基于tf2.0版本，优化模型大小与性能
+> V1.0-SNAPSHOT：试用版
 
 
 
