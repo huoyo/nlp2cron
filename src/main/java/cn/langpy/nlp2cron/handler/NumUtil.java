@@ -24,11 +24,11 @@ public class NumUtil {
     public static String dateHandler(String re,TimeType timeType) {
         if (timeType==TimeType.today) {
             LocalDate now = LocalDate.now();
-            re = now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth();
+            re = now.getYear()+"-"+(now.getMonthValue()<10?"0"+now.getMonthValue():now.getMonthValue())+"-"+(now.getDayOfMonth()<10?"0"+now.getDayOfMonth():now.getDayOfMonth());
             return re;
         } else if (timeType==TimeType.tomorrow) {
             LocalDate now = LocalDate.now().plusDays(1);
-            re = now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth();
+            re = now.getYear()+"-"+(now.getMonthValue()<10?"0"+now.getMonthValue():now.getMonthValue())+"-"+(now.getDayOfMonth()<10?"0"+now.getDayOfMonth():now.getDayOfMonth());
             return re;
         }
         return null;
@@ -38,11 +38,11 @@ public class NumUtil {
         String[] reSplit = re.split("#");
         if (timeType==TimeType.today) {
             LocalDate now = LocalDate.now();
-            re = now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth()+" "+reSplit[2]+":"+reSplit[1]+":"+reSplit[0];
+            re = now.getYear()+"-"+(now.getMonthValue()<10?"0"+now.getMonthValue():now.getMonthValue())+"-"+(now.getDayOfMonth()<10?"0"+now.getDayOfMonth():now.getDayOfMonth())+" "+(reSplit[2].length()==1?"0"+reSplit[2]:reSplit[2])+":"+(reSplit[1].length()==1?"0"+reSplit[1]:reSplit[1])+":"+(reSplit[0].length()==1?"0"+reSplit[0]:reSplit[0]);
             return re;
         } else if (timeType==TimeType.tomorrow) {
             LocalDate now = LocalDate.now().plusDays(1);
-            re = now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth()+" "+reSplit[2]+":"+reSplit[1]+":"+reSplit[0];
+            re = now.getYear()+"-"+(now.getMonthValue()<10?"0"+now.getMonthValue():now.getMonthValue())+"-"+(now.getDayOfMonth()<10?"0"+now.getDayOfMonth():now.getDayOfMonth())+" "+(reSplit[2].length()==1?"0"+reSplit[2]:reSplit[2])+":"+(reSplit[1].length()==1?"0"+reSplit[1]:reSplit[1])+":"+(reSplit[0].length()==1?"0"+reSplit[0]:reSplit[0]);
             return re;
         }
         return null;

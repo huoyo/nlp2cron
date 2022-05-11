@@ -5,28 +5,27 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;
-import java.util.*;
 
 
 public class CrondConfig {
-    public  String modelPath = "src\\main\\resources\\model";
-    public  JSONObject word2id = null;
-    public List<String> outputStrs = null;
-    static public Map<Integer, String> id2str = new HashMap<>();
-    static public Map<String, Integer> str2id = new HashMap<>();
+    public String modelPath = "src\\main\\resources\\model";
+    public JSONObject inputId2Word = null;
+    public JSONObject inputWord2Id = null;
+    public JSONObject outputId2Word = null;
 
     {
-        try {
-            InputStream inputStream = CrondConfig.class.getResourceAsStream("/word2id.json");
-            String mapping = IOUtils.toString(inputStream,"utf-8");
-            word2id = JSON.parseObject(mapping);
+        try (InputStream inputWordsStream = CrondConfig.class.getResourceAsStream("/input.json"); InputStream outputWordsStream = CrondConfig.class.getResourceAsStream("/output.json")) {
+            String inMapping = IOUtils.toString(inputWordsStream, "utf-8");
+            inputId2Word = JSON.parseObject(inMapping);
+            inputWord2Id = new JSONObject();
+            for (String id : inputId2Word.keySet()) {
+                String word = inputId2Word.getString(id);
+                inputWord2Id.put(word, Integer.valueOf(id));
+            }
+            String outMapping = IOUtils.toString(outputWordsStream, "utf-8");
+            outputId2Word = JSON.parseObject(outMapping);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        outputStrs = Arrays.asList("#","*","0","S","?","E","1","2","3","5","4","7","8","6","9","/", "<UNK>");
-        for (int i = 0; i <outputStrs.size() ; i++) {
-            str2id.put(outputStrs.get(i), i);
-            id2str.put(i,outputStrs.get(i));
         }
     }
 
@@ -34,39 +33,27 @@ public class CrondConfig {
         return modelPath;
     }
 
-    public void setModelPath(String modelPath) {
-        this.modelPath = modelPath;
+    public JSONObject getInputId2Word() {
+        return inputId2Word;
     }
 
-    public JSONObject getWord2id() {
-        return word2id;
+    public void setInputId2Word(JSONObject inputId2Word) {
+        this.inputId2Word = inputId2Word;
     }
 
-    public void setWord2id(JSONObject word2id) {
-        this.word2id = word2id;
+    public JSONObject getInputWord2Id() {
+        return inputWord2Id;
     }
 
-    public List<String> getOutputStrs() {
-        return outputStrs;
+    public void setInputWord2Id(JSONObject inputWord2Id) {
+        this.inputWord2Id = inputWord2Id;
     }
 
-    public void setOutputStrs(List<String> outputStrs) {
-        this.outputStrs = outputStrs;
+    public JSONObject getOutputId2Word() {
+        return outputId2Word;
     }
 
-    public static Map<Integer, String> getId2str() {
-        return id2str;
-    }
-
-    public static void setId2str(Map<Integer, String> id2str) {
-        CrondConfig.id2str = id2str;
-    }
-
-    public static Map<String, Integer> getStr2id() {
-        return str2id;
-    }
-
-    public static void setStr2id(Map<String, Integer> str2id) {
-        CrondConfig.str2id = str2id;
+    public void setOutputId2Word(JSONObject outputId2Word) {
+        this.outputId2Word = outputId2Word;
     }
 }

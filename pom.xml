@@ -6,7 +6,7 @@
 
     <groupId>cn.langpy</groupId>
     <artifactId>nlp2cron</artifactId>
-    <version>1.1</version>
+    <version>2.0.BETA</version>
     <name>nlp2cron</name>
     <description>nlp2cron</description>
     <prerequisites>
@@ -31,22 +31,22 @@
         <developerConnection>scm:git:https://gitee.com/huoyo/nlp2cron.git</developerConnection>
     </scm>
     <dependencies>
-    <dependency>
-        <groupId>org.tensorflow</groupId>
-        <artifactId>tensorflow</artifactId>
-        <version>1.15.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>fastjson</artifactId>
-        <version>1.2.60</version>
-    </dependency>
-    <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>2.6</version>
-    </dependency>
-</dependencies>
+        <dependency>
+            <groupId>org.tensorflow</groupId>
+            <artifactId>tensorflow-core-platform</artifactId>
+            <version>0.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.60</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
