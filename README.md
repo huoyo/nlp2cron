@@ -49,7 +49,7 @@ CrondModel.init("d:/model");
 ```
 
 
-> 注：目前仅之前时分秒的控制
+> 注：目前仅支持时分秒的控制
 
 ```java
  public static void main(String[] args) {
