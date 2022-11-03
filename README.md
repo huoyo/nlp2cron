@@ -18,6 +18,7 @@
 
 [本大爷去试试](http://nlp2cron.langpy.cn/)
 
+[在线幻灯片演示介绍](http://www.texspire.cn/view/f9424e8a921344e6a89c9e43358ab0c4)
 
 #### 使用教程
 
