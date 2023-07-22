@@ -17,10 +17,11 @@
 #### 在线体验
 
 > 注：训练样本局限，本人一行一行瞎编的，无法全部覆盖，目前仅支持时分秒的控制，暂不支持复杂的识别
+> 注：目前仅支持时分秒的控制
 
 [本大爷去试试](http://nlp2cron.langpy.cn/)
 
-[在线幻灯片演示介绍](http://www.texspire.cn/view/f9424e8a921344e6a89c9e43358ab0c4)
+[在线幻灯片演示介绍](http://www.texspire.cn/view/f9424e8a921344e6a89c9e43358ab0c4?staticnavmenu=true)
 
 #### 使用教程
 
@@ -56,7 +57,7 @@ CrondModel.init("d:/model");
 ```
 
 
-> 注：目前仅支持时分秒的控制
+
 
 ```java
  public static void main(String[] args) {
